@@ -61,7 +61,7 @@ import net.sf.sparql.benchmarking.util.FormatUtils;
  */
 public abstract class AbstractQueryCallable<T extends Options> extends AbstractOperationCallable<T> {
 
-    private static final Logger logger = LoggerFactory.getLogger(RemoteQueryCallable.class);
+    private static final Logger logger = LoggerFactory.getLogger(AbstractQueryCallable.class);
 
     /**
      * Creates a new callable
@@ -176,7 +176,8 @@ public abstract class AbstractQueryCallable<T extends Options> extends AbstractO
                 }
             }
         }
-        logger.debug("Running query:\n" + query.toString());
+
+        logger.debug("Running query:\n{}", query);
 
         // Create query execution
         QueryExecution exec = this.createQueryExecution(query);
